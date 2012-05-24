@@ -1,0 +1,6 @@
+Modular Force Field System,
+
+This is a fork of the Modular Force Field System for Industrial Craft 2. The code is licensed under the LGPL per original author: http://forum.industrial-craft.net/index.php?page=Thread&postID=59437#post59437
+
+All traces of original IC2 source code has been removed and this now uses only the API plus a self-made de-obfuscated IC2 library for both client and server (not provided due to licensing restrictions).
+ 
