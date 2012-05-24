@@ -1,25 +1,18 @@
 package net.minecraft.src;
 
-
 import java.io.File;
 import java.util.Hashtable;
 import java.util.Map;
-import org.lwjgl.input.Keyboard;
+
+import net.minecraft.src.forge.*;
+import net.minecraft.src.ic2.api.*;
 
 import com.kaijin.mffs.*;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.src.forge.Configuration;
-import net.minecraft.src.forge.MinecraftForge;
-import net.minecraft.src.forge.MinecraftForgeClient;
-import net.minecraft.src.forge.MinecraftForgeClient;
-import net.minecraft.src.ic2.api.ExplosionWhitelist;
-import net.minecraft.src.ic2.api.Items;
+public class mod_ModularForceFieldSystem extends NetworkMod {
 
-public class mod_ModularForceFieldSystem extends BaseMod {
-
-
-	public static Configuration config;
+    public static mod_ModularForceFieldSystem instance;
+	public static Configuration config = CommonProxy.getConfiguration();
 	
 	public static Block MFFSMaschines;
 	public static Block MFFSUpgrades;
@@ -59,9 +52,14 @@ public class mod_ModularForceFieldSystem extends BaseMod {
 	public static StringBuffer hasher = new StringBuffer();
 	public static Map<Integer, Integer[]> idtotextur = new Hashtable<Integer, Integer[]>();
 
+    @Override
+    public void load()
+    {
+        MinecraftForge.setGuiHandler(this.instance, new GuiHandlerMFFS());
+        MinecraftForge.registerConnectionHandler(new ConnectionHandler());
+    }
+	
 	public mod_ModularForceFieldSystem() {
-
-
 
 		ModLoader.registerBlock(MFFSMaschines, ItemMachines.class);
 		ModLoader.registerBlock(MFFSUpgrades, ItemUpgrades.class);
@@ -81,54 +79,6 @@ public class mod_ModularForceFieldSystem extends BaseMod {
 		ModLoader.registerTileEntity(TileEntityReaktorCooler.class, "Reaktor_Cooler");
 		ModLoader.registerTileEntity(TileEntityReaktorMonitor.class, "Reaktor_Monitor");
 		ModLoader.registerTileEntity(TileEntityReaktorMonitorClient.class, "Reaktor_Monitor_Client");		
-		
-		ModLoader.addName(MFFSitemMFDidtool, "MFDevice <ID-Tool>");
-		ModLoader.addName(MFFSitemMFDwrench, "MFDevice <Wrench>");
-		ModLoader.addName(MFFSitemcardempty, "MFFS Card blank ");
-		ModLoader.addName(MFFSitemfc, "MFFS Frequency Card");
-		ModLoader.addName(MFFSitemidc, "MFFS ID Card");
-		ModLoader.addName(MFFSitemMFDdebugger, "MFDevice <Debugger>");
-		ModLoader.addName(MFFSitemsclc, "MFFS  Link Card");
-		ModLoader.addName(MFFSitemMFDReaktorlink, "MFFS Remote Reaktor Link");
-		
-
-		ModLoader.addLocalization("Tube_Projektor.name", "MFFS Tube Projector");
-		ModLoader.addLocalization("Directional_Extender.name", "MFFS directional extender");
-		ModLoader.addLocalization("Deflector_Projektor.name", "MFFS deflector");
-		ModLoader.addLocalization("Generator_Core.name", "MFFS generator core");
-		ModLoader.addLocalization("Area_Projektor.name", "MFFS Area Projector");
-		ModLoader.addLocalization("Generator_Storage.name", "MFFS generator storage upgrade");
-		ModLoader.addLocalization("Generator_Linkex.name", "MFFS generator range upgrade");
-		ModLoader.addLocalization("Generator_EU_Injektor.name", "MFFS generator EU-injector");
-		ModLoader.addLocalization("Directional_Projektor.name", "MFFS directional projektor");
-		ModLoader.addLocalization("Projektor_Subwater.name", " MFFS Projector underwater upgrade");
-		ModLoader.addLocalization("Projektor_Dome.name", "MFFS Projector dome upgrade");
-		ModLoader.addLocalization("Projektor_Hardner.name", "MFFS Projector block cutter upgrade");
-		ModLoader.addLocalization("Projektor_Zapper.name", "MFFS Projector ZAPPER upgrade");
-		ModLoader.addLocalization("Projektor_camouflage.name", "MFFS Projector camouflage upgrade");
-		ModLoader.addLocalization("Reaktor_Field.name", "MFFS nuclear reactor containment ");
-		ModLoader.addLocalization("Reactor_Connector.name", "MFFS reactor connector ");
-		ModLoader.addLocalization("Reaktor_Cooler.name", "MFFS reactor heat control");
-		ModLoader.addLocalization("Reaktor_Monitor.name", "MFFS reactor heat monitor server");
-		ModLoader.addLocalization("Reaktor_Monitor_Client.name", "MFFS reactor heat monitor client");
-		
-		MinecraftForgeClient.preloadTexture("/com/kaijin/mffs/textures/upgrades.png");
-		MinecraftForgeClient.preloadTexture("/com/kaijin/mffs/textures/machines.png");
-		MinecraftForgeClient.preloadTexture("/com/kaijin/mffs/textures/blocks.png");
-		MinecraftForgeClient.preloadTexture("/com/kaijin/mffs/textures/items.png");
-
-//		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guiIDGenerator);
-//		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guiareaproje);
-//		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guidirectprojektor);
-//		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guideflectorprojektor);
-//		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guidirectupgrade);
-//		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guitubeprojektor);
-//		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guicamouflageupgrade);
-//		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guireaktorfield);
-//		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guireaktorcooler);
-//		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guireaktormonitor);
-//		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guireaktormonitorclient);
-//		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guireaktormonitorremote);
 		
 		idtotextur.put(new Integer(1), new Integer[] { 17, 17, 17, 17, 17, 17 }); //
 		idtotextur.put(new Integer(3), new Integer[] { 18, 18, 18, 18, 18, 18 }); //
@@ -327,18 +277,20 @@ public class mod_ModularForceFieldSystem extends BaseMod {
 
 	}
 
-
-
 	public String getVersion() {
 
 		return "1.2 Beta 6pre3_2";
 	}
 
-	
-	
-
 	@Override
-	public void load() {
-	}
+    public boolean clientSideRequired()
+    {
+        return true;
+    }
 
+    @Override
+    public boolean serverSideRequired()
+    {
+        return false;
+    }
 }
