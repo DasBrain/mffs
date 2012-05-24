@@ -366,7 +366,7 @@ public class BlockUpgrades extends BlockContainer implements ITextureProvider, I
 
 	public String getTextureFile() {
 
-		return "/mffs_grafik/upgrades.png";
+		return "/com/kaijin/mffs/textures/upgrades.png";
 	}
 
 	public static boolean isActive(IBlockAccess iblockaccess, int i, int j, int k) {

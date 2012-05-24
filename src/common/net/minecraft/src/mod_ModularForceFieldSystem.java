@@ -112,10 +112,10 @@ public class mod_ModularForceFieldSystem extends BaseMod {
 		ModLoader.addLocalization("Reaktor_Monitor.name", "MFFS reactor heat monitor server");
 		ModLoader.addLocalization("Reaktor_Monitor_Client.name", "MFFS reactor heat monitor client");
 		
-		MinecraftForgeClient.preloadTexture("/mffs_grafik/upgrades.png");
-		MinecraftForgeClient.preloadTexture("/mffs_grafik/machines.png");
-		MinecraftForgeClient.preloadTexture("/mffs_grafik/blocks.png");
-		MinecraftForgeClient.preloadTexture("/mffs_grafik/items.png");
+		MinecraftForgeClient.preloadTexture("/com/kaijin/mffs/textures/upgrades.png");
+		MinecraftForgeClient.preloadTexture("/com/kaijin/mffs/textures/machines.png");
+		MinecraftForgeClient.preloadTexture("/com/kaijin/mffs/textures/blocks.png");
+		MinecraftForgeClient.preloadTexture("/com/kaijin/mffs/textures/items.png");
 
 //		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guiIDGenerator);
 //		ModLoaderMp.registerGUI(this, mod_ModularForceFieldSystem.guiareaproje);

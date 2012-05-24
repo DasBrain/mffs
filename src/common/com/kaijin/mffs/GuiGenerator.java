@@ -25,7 +25,7 @@ public class GuiGenerator extends GuiContainer {
 
 	protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 
-		int textur = mc.renderEngine.getTexture("/mffs_grafik/GUIid.png");
+		int textur = mc.renderEngine.getTexture("/com/kaijin/mffs/textures/GUIid.png");
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		mc.renderEngine.bindTexture(textur);
 		int w = (width - xSize) / 2;

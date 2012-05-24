@@ -23,7 +23,7 @@ public class ItemIDCard extends Item implements ITextureProvider {
 	}
 
 	public String getTextureFile() {
-		return "/mffs_grafik/items.png";
+		return "/com/kaijin/mffs/textures/items.png";
 	}
 
 	public boolean isRepairable() {

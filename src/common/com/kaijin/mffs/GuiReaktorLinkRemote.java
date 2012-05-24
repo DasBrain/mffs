@@ -149,7 +149,7 @@ public class GuiReaktorLinkRemote extends GuiScreen {
 
 	protected void drawGuiContainerBackgroundLayer(float f) {
 
-		int textur = mc.renderEngine.getTexture("/mffs_grafik/GUIreaktorlink.png");
+		int textur = mc.renderEngine.getTexture("/com/kaijin/mffs/textures/GUIreaktorlink.png");
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		mc.renderEngine.bindTexture(textur);
 		int w = (width - xSize) / 2;

@@ -120,7 +120,7 @@ public class BlockForceField extends BlockGlass implements ITextureProvider, ISp
 
 	public String getTextureFile() {
 
-		return "/mffs_grafik/blocks.png";
+		return "/com/kaijin/mffs/textures/blocks.png";
 	}
 
 	public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer) {

@@ -232,7 +232,7 @@ public class BlockMachine extends BlockContainer implements ITextureProvider, IS
 
 	public String getTextureFile() {
 
-		return "/mffs_grafik/machines.png";
+		return "/com/kaijin/mffs/textures/machines.png";
 	}
 
 	public int idDropped(int i, Random random) {
