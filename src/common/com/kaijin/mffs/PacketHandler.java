@@ -3,8 +3,6 @@ package com.kaijin.mffs;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 
-import com.kaijin.ExtendedCL.*;
-
 import net.minecraft.src.*;
 import net.minecraft.src.forge.*;
 
@@ -71,8 +69,12 @@ public class PacketHandler implements IPacketHandler
 
             World world = CommonProxy.PacketHandlerGetWorld(network);
             TileEntity tile = world.getBlockTileEntity(x, y, z);
+        }
+    }
+}
 
             //check if the tile we're looking at is an Inventory Stocker tile
+/*
             if (tile instanceof TileEntityExtendedCL)
             {
                 //call a function on that tile to let it know if it has a valid state server side or not
@@ -89,4 +91,4 @@ public class PacketHandler implements IPacketHandler
             }
         }
     }
-}
+    */
