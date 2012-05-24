@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
+import com.kaijin.mffs.*;
 import net.minecraft.src.forge.ISpecialResistance;
 import net.minecraft.src.forge.ITextureProvider;
 import net.minecraft.src.ic2.common.TileEntityReactorChamber;
@@ -315,7 +316,10 @@ public class BlockUpgrades extends BlockContainer implements ITextureProvider, I
 			}
 
 			if (integer != null) {
-				return mod_ModularForceFieldSystem.launchGUI(entityplayer, world.getBlockTileEntity(i, j, k), integer);
+                if (!CommonProxy.isClient(world))
+                {
+                    entityplayer.openGui(mod_ModularForceFieldSystem.instance, integer, world, i, j, k);
+                }
 			}
 
 			if (meta == 4 || meta == 5) {
@@ -326,7 +330,10 @@ public class BlockUpgrades extends BlockContainer implements ITextureProvider, I
 					TileEntityGeneratorCore tileentitygen = Linkgrid.getWorldMap(world).getGenerator().get(tileentity.getconectet_ID());
 					if (tileentitygen != null) {
 						Integer guiid = getGuiPro(world, tileentitygen.xCoord, tileentitygen.yCoord, tileentitygen.zCoord, entityplayer);
-						return mod_ModularForceFieldSystem.launchGUI(entityplayer, world.getBlockTileEntity(tileentitygen.xCoord, tileentitygen.yCoord, tileentitygen.zCoord), guiid);
+				        if (!CommonProxy.isClient(world))
+				        {
+				            entityplayer.openGui(mod_ModularForceFieldSystem.instance, guiid, world, i, j, k);
+				        }
 					}
 
 				}

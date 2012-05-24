@@ -178,7 +178,7 @@ public class mod_ModularForceFieldSystem extends NetworkMod {
 	
 	public mod_ModularForceFieldSystem()
 	{
-
+	    instance = this;
 	}
 	
     public void ModsLoaded()
@@ -215,13 +215,6 @@ public class mod_ModularForceFieldSystem extends NetworkMod {
         ModLoader.addShapelessRecipe(new ItemStack(MFFSitemMFDidtool), new Object[]{new ItemStack(MFFSitemMFDwrench)});
          
     }
-
-    public static boolean launchGUI(EntityPlayer entityplayer, TileEntity tileentity, Integer integer) {
-
-		ModLoader.openGUI(entityplayer, CommonProxy.getGuiForId(entityplayer, integer.intValue(), tileentity));
-		return true;
-
-	}
 
 	public String getVersion() {
 

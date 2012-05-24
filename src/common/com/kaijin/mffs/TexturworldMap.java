@@ -2,15 +2,7 @@ package com.kaijin.mffs;
 
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.LinkedList;
 import java.util.Map;
-import java.util.NoSuchElementException;
-
-import com.kaijin.mffs.Linkgrid.Worldlinknet;
-
-import net.minecraft.src.ModLoader;
-import net.minecraft.src.World;
-import net.minecraft.src.mod_ModularForceFieldSystem;
 
 public final class TexturworldMap {
 

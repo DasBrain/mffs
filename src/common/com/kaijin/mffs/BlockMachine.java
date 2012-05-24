@@ -3,9 +3,11 @@ package com.kaijin.mffs;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
+
 import net.minecraft.src.forge.ISpecialResistance;
 import net.minecraft.src.forge.ITextureProvider;
 import net.minecraft.src.*;
+import com.kaijin.mffs.*;
 
 public class BlockMachine extends BlockContainer implements ITextureProvider, ISpecialResistance {
 
@@ -51,7 +53,7 @@ public class BlockMachine extends BlockContainer implements ITextureProvider, IS
 		}
 	}
 
-	public boolean blockActivated(World world, int i, int j, int k, EntityPlayer entityplayer) {
+	public boolean blockActivated(World world, int x, int y, int z, EntityPlayer entityplayer) {
 
 		if (!Functions.isSimulation()) {
 			return true;
@@ -71,13 +73,17 @@ public class BlockMachine extends BlockContainer implements ITextureProvider, IS
 				return false;
 			}
 
-			Integer integer = getGui(world, i, j, k, entityplayer);
+			Integer integer = getGui(world, x, y, z, entityplayer);
 
 			if (integer == null) {
 				return false;
 			}
 
-			return mod_ModularForceFieldSystem.launchGUI(entityplayer, world.getBlockTileEntity(i, j, k), integer);
+			if (!CommonProxy.isClient(world))
+	        {
+	            entityplayer.openGui(mod_ModularForceFieldSystem.instance, integer, world, x, y, z);
+	        }
+	        return false;
 		}
 	}
 
