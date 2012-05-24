@@ -75,4 +75,60 @@ public class CommonProxy
     {
         ModLoader.sendPacket(packet);
     }
+/*
+ * TODO Need to redo this as we're not going to use it exactly as is
+ */
+    public static GuiScreen getGuiForId(EntityPlayer entityplayer, int i, TileEntity tileentity) {
+
+        if ((tileentity.getBlockMetadata() == 4 || tileentity.getBlockMetadata() == 5) && tileentity.getBlockType() == mod_ModularForceFieldSystem.MFFSUpgrades) {
+            i = mod_ModularForceFieldSystem.guiIDGenerator;
+        }
+
+        if (i == mod_ModularForceFieldSystem.guiIDGenerator) {
+
+            return new GuiGenerator(entityplayer.inventory, tileentity == null ? new TileEntityGeneratorCore() : ((TileEntityGeneratorCore) tileentity));
+        }
+        if (i == mod_ModularForceFieldSystem.guiareaproje) {
+
+            return new GuiProjektorArea(entityplayer.inventory, tileentity == null ? new TileEntityAreaProjektor() : ((TileEntityAreaProjektor) tileentity));
+        }
+        if (i == mod_ModularForceFieldSystem.guidirectprojektor) {
+
+            return new GuiProjektorDirectional(entityplayer.inventory, tileentity == null ? new TileEntityDirectionalProjektor() : ((TileEntityDirectionalProjektor) tileentity));
+        }
+        if (i == mod_ModularForceFieldSystem.guideflectorprojektor) {
+
+            return new GuiDeflectorDirectional(entityplayer.inventory, tileentity == null ? new TileEntityDeflectorProjektor() : ((TileEntityDeflectorProjektor) tileentity));
+        }
+        if (i == mod_ModularForceFieldSystem.guidirectupgrade) {
+
+            return new GuiDirectionalUpgrade(entityplayer.inventory, tileentity == null ? new TileEntityDirectionalExtender() : ((TileEntityDirectionalExtender) tileentity));
+        }
+        if (i == mod_ModularForceFieldSystem.guitubeprojektor) {
+
+            return new GuiProjTube(entityplayer.inventory, tileentity == null ? new TileEntityTubeProjektor() : ((TileEntityTubeProjektor) tileentity));
+        }
+        if (i == mod_ModularForceFieldSystem.guicamouflageupgrade) {
+
+            return new GuiCamouflageUpgrade(entityplayer.inventory, tileentity == null ? new TileEntityCamoflageUpgrade() : ((TileEntityCamoflageUpgrade) tileentity));
+        }
+        if (i == mod_ModularForceFieldSystem.guireaktorfield) {
+
+            return new GuiReaktorField(entityplayer.inventory, tileentity == null ? new TileEntityReaktorField() : ((TileEntityReaktorField) tileentity));
+        }
+        if (i == mod_ModularForceFieldSystem.guireaktorcooler) {
+
+            return new GuiReaktorCooler(entityplayer.inventory, tileentity == null ? new TileEntityReaktorCooler() : ((TileEntityReaktorCooler) tileentity));
+        }
+        if (i == mod_ModularForceFieldSystem.guireaktormonitor) {
+
+            return new GuiReaktorMonitor(entityplayer.inventory, tileentity == null ? new TileEntityReaktorMonitor() : ((TileEntityReaktorMonitor) tileentity));
+        }
+        if (i == mod_ModularForceFieldSystem.guireaktormonitorclient) {
+
+            return new GuiReaktorMonitorClient(entityplayer.inventory, tileentity == null ? new TileEntityReaktorMonitorClient() : ((TileEntityReaktorMonitorClient) tileentity));
+        }
+        return null;
+    }
+
 }
