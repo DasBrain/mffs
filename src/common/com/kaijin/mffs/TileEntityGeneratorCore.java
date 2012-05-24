@@ -12,6 +12,7 @@ import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.NBTTagList;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.mod_ModularForceFieldSystem;
+import com.kaijin.mffs.*;
 
 public class TileEntityGeneratorCore extends TileEntityMaschines implements IInventory {
 

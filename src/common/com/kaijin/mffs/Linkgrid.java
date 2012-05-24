@@ -12,7 +12,7 @@ public final class Linkgrid {
 
 	private static Map WorldpowernetMap = new HashMap();
 
-	static class Worldlinknet {
+	public static class Worldlinknet {
 
 		private Map<Integer, TileEntityProjektor> Projektor = new Hashtable<Integer, TileEntityProjektor>();
 		private Map<Integer, TileEntityGeneratorCore> Generator = new Hashtable<Integer, TileEntityGeneratorCore>();
