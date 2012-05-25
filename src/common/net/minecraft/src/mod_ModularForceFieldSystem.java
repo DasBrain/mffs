@@ -181,8 +181,9 @@ public class mod_ModularForceFieldSystem extends NetworkMod {
 	    instance = this;
 	}
 	
-    public void ModsLoaded()
+    public void modsLoaded()
     {
+        super.modsLoaded();
     	ExplosionWhitelist.addWhitelistedBlock(MFFSFieldblock);
     	ExplosionWhitelist.addWhitelistedBlock(MFFSUpgrades);
     	ExplosionWhitelist.addWhitelistedBlock(MFFSMaschines);
