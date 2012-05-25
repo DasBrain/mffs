@@ -168,40 +168,40 @@ public class BlockUpgrades extends BlockContainer implements ITextureProvider, I
 
 			if (((TileEntityReaktorConnector) tileentity).isredpowert()) {
 
-				World world = ModLoader.getMinecraftInstance().theWorld;
+//				World world = ModLoader.getMinecraftInstance().theWorld;
 				switch (l) {
 
 				case 0:
-					if (world.getBlockTileEntity(i, j + 1, k) instanceof TileEntityReactorChamber) {
+					if (iblockaccess.getBlockTileEntity(i, j + 1, k) instanceof TileEntityReactorChamber) {
 						return true;
 					}
 
 					break;
 				case 1:
 
-					if (world.getBlockTileEntity(i, j - 1, k) instanceof TileEntityReactorChamber) {
+					if (iblockaccess.getBlockTileEntity(i, j - 1, k) instanceof TileEntityReactorChamber) {
 						return true;
 					}
 
 					break;
 				case 2:
-					if (world.getBlockTileEntity(i, j, k + 1) instanceof TileEntityReactorChamber) {
+					if (iblockaccess.getBlockTileEntity(i, j, k + 1) instanceof TileEntityReactorChamber) {
 						return true;
 					}
 					break;
 				case 3:
-					if (world.getBlockTileEntity(i, j, k - 1) instanceof TileEntityReactorChamber) {
+					if (iblockaccess.getBlockTileEntity(i, j, k - 1) instanceof TileEntityReactorChamber) {
 						return true;
 					}
 
 					break;
 				case 4:
-					if (world.getBlockTileEntity(i + 1, j, k) instanceof TileEntityReactorChamber) {
+					if (iblockaccess.getBlockTileEntity(i + 1, j, k) instanceof TileEntityReactorChamber) {
 						return true;
 					}
 					break;
 				case 5:
-					if (world.getBlockTileEntity(i - 1, j, k) instanceof TileEntityReactorChamber) {
+					if (iblockaccess.getBlockTileEntity(i - 1, j, k) instanceof TileEntityReactorChamber) {
 						return true;
 					}
 					break;
@@ -218,41 +218,39 @@ public class BlockUpgrades extends BlockContainer implements ITextureProvider, I
 		if (tileentity instanceof TileEntityReaktorMonitorClient) {
 			if (((TileEntityReaktorMonitorClient) tileentity).isSignal()) {
 
-				World world = ModLoader.getMinecraftInstance().theWorld;
-
 				switch (l) {
 
 				case 0:
-					if (world.getBlockTileEntity(i, j + 1, k) instanceof TileEntityReaktorMonitorClient) {
+					if (iblockaccess.getBlockTileEntity(i, j + 1, k) instanceof TileEntityReaktorMonitorClient) {
 						return false;
 					}
 
 					break;
 				case 1:
 
-					if (world.getBlockTileEntity(i, j - 1, k) instanceof TileEntityReaktorMonitorClient) {
+					if (iblockaccess.getBlockTileEntity(i, j - 1, k) instanceof TileEntityReaktorMonitorClient) {
 						return false;
 					}
 
 					break;
 				case 2:
-					if (world.getBlockTileEntity(i, j, k + 1) instanceof TileEntityReaktorMonitorClient) {
+					if (iblockaccess.getBlockTileEntity(i, j, k + 1) instanceof TileEntityReaktorMonitorClient) {
 						return false;
 					}
 					break;
 				case 3:
-					if (world.getBlockTileEntity(i, j, k - 1) instanceof TileEntityReaktorMonitorClient) {
+					if (iblockaccess.getBlockTileEntity(i, j, k - 1) instanceof TileEntityReaktorMonitorClient) {
 						return false;
 					}
 
 					break;
 				case 4:
-					if (world.getBlockTileEntity(i + 1, j, k) instanceof TileEntityReaktorMonitorClient) {
+					if (iblockaccess.getBlockTileEntity(i + 1, j, k) instanceof TileEntityReaktorMonitorClient) {
 						return false;
 					}
 					break;
 				case 5:
-					if (world.getBlockTileEntity(i - 1, j, k) instanceof TileEntityReaktorMonitorClient) {
+					if (iblockaccess.getBlockTileEntity(i - 1, j, k) instanceof TileEntityReaktorMonitorClient) {
 						return false;
 					}
 					break;

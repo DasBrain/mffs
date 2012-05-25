@@ -131,7 +131,6 @@ public class mod_ModularForceFieldSystem extends NetworkMod {
     static {
 
         try {
-            config = new Configuration(new File(Functions.getMinecraftDir(), "/config/ModularForceFieldSystem.cfg"));
             config.load();
         } catch (Exception exception) {
             config = null;

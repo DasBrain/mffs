@@ -22,7 +22,7 @@ public class CommonProxy
         //server side needs to grab the world entity
         return ((NetServerHandler)network.getNetHandler()).getPlayerEntity().worldObj;
     }
-
+    
     public static boolean isClient(World world)
     {
         return false;
